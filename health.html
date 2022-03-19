@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+    }
+    .container{
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(158, 84, 54);
+        transition: 0.5s;
+        padding: 20px;
+    }
+    .item{
+        position: relative;
+    }
+    h2{
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    .item img{
+        max-width: 100%;
+        display: block;
+    }
+    a{
+        position: relative;
+        padding: 5px 20px;
+        display: inline-block;
+        margin-top: 20px;
+        color: white;
+        background-color: black;
+    }
+    .container#blur.active{
+        filter: blur(20px);
+        pointer-events: none;
+        user-select: none;
+    }
+    #popup{
+        position: fixed;
+        top: 40%;
+        left: 60%;
+        transform: translate(-50%,-50%);
+        width: 600px;
+        padding: 50px;
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 30);
+        visibility: hidden;
+        transition: 0.5s;
+    }
+    #popup.active{
+        top: 50%;
+        visibility: visible;
+        opacity: 1;
+        transition: 00.5s;
+    }
+</style>
+<body>
+    <div class="container" id="blur">
+        <div class="item">
+            <h2>Health is Wealth!!!</h2>
+            <img src="https://cdn.dnaindia.com/sites/default/files/styles/full/public/2021/11/26/1007030-karan36.jpg" alt="Unknown Error">
+            <a href="#" onclick="toggle()">Read more</a>
+        </div>
+    </div>
+    <div id="popup">
+        <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae, ea!</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At aliquam non quaerat similique magni quis expedita doloribus consequatur, pariatur saepe soluta maxime beatae temporibus vel inventore veniam explicabo, alias mollitia blanditiis? Pariatur, incidunt dicta.</p>
+        <a href="#" onclick="toggle()">Exit</a>
+        </div>
+    <script type="text/javascript">
+        function toggle(){
+            var blur = document.getElementById('blur');
+            blur.classList.toggle('active');
+            var popup = document.getElementById('popup');
+            popup.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
